@@ -1,0 +1,104 @@
+:root {
+    --clr-primary: #2D2D2D;
+    --clr-secondary: #757575;
+    --clr-accent: #A445ED;
+    --clr-line: #E9E9E9;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* nav elements */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.4rem 0;
+}
+.font-select {
+  appearance: none;
+  -webkit-appearance: none;
+  color: var(--clr-primary);
+  background: url('./images/icon-arrow-down.svg') no-repeat right center;
+  padding-right: 2.6rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border: none;
+  outline: none;
+}
+.vert-dema {
+    width: .1rem;
+    height: 3.2rem;
+    background-color: var(--clr-line);
+    margin: 0 1.6rem;
+}
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.toggle {
+    margin-right: 1.2rem;
+    --width: 4rem;
+    --height: calc(var(--width) / 2);
+    --border-radius: calc(var(--height) / 2);
+    display: inline-block;
+    cursor: pointer;
+}
+.toggle-input {
+    display: none;
+}
+.toggle-input:checked ~ .toggle-fill {
+    background: var(--clr-accent);
+}
+.toggle-fill {
+    position: relative;
+    border-radius: var(--border-radius);
+    width: var(--width);
+    height: var(--height);
+    background: var(--clr-secondary);
+    transition: background 0.2s ease;
+}
+.toggle-fill::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0.3rem;
+    transform: translateY(-50%);
+    height:  calc(var(--height) - 0.5rem);
+    width: calc(var(--height) - 0.5rem);
+    border-radius: var(--border-radius);
+    background: #fff;
+    transition: transform 0.2s ease;
+}
+.toggle-input:checked ~ .toggle-fill::after {
+    transform: translate(var(--height), -50%);
+}
+ul {
+    list-style: none;
+}
+ul li {
+    padding-left: 2.4rem;
+    position: relative;
+}
+ul li::before {
+    content: '\2022';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+/* Search elements */
