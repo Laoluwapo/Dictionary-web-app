@@ -3,9 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./images/logo.svg">
+  <link rel="stylesheet" href="./style.css">
   <title>Dictionary web app</title>
 </head>
 <body>
-
+  <div class="container">
+    <nav>
+      <div>
+        <img src="./images/logo.svg" alt="logo">
+      </div>
+      <div>
+        <select name="fonts" id="fonts">
+          <option value="Sans Serif">Sans Serif</option>
+          <option value="Serif">Serif</option>
+          <option value="Mono">Mono</option>
+        </select>
+        <label class="toggle" for="myToggle">
+          <input type="checkbox" id="myToggle">
+          <div class="toggle-fill"></div>
+        </label>
+        <img src="./images/icon-moon.svg" alt="moon icon">
+      </div>
+      <div class="search">
+        <input type="text">
+        <img src="./images/icon-search.svg" alt="search icon">
+      </div>
+    </nav>
+    <main>
+      <div class="search-term">
+        <h1>keyboard</h1>
+        <p>/ˈkiːbɔːd/</p>
+        <img src="./images/icon-play.svg" alt="play icon">
+      </div>
+      <div class="meaning-section">
+        <div class="noun">
+          <h2>noun</h2>
+          <div></div>
+        </div>
+        <p class="meaning">Meaning</p>
+        <ul>
+          <li>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
+          <li>A component of many instruments including the piano, organ, and harpsichord consisting of usually black and white keys that cause different tones to be produced when struck.</li>
+          <li>A device with keys of a musical keyboard, used to control electronic sound-producing devices which may be built into or separate from the keyboard</li>
+        </ul>
+        <div class="synonyms">
+          <p>synonyms</p>
+          <p>electronic keyboard</p>
+        </div>
+      </div>
+      <div class="meaning-section">
+        <div class="verb">
+          <h2>verb</h2>
+          <div></div>
+        </div>
+      </div>
+      <p class="meaning">Meaning</p>
+      <ul>
+        <li>To type on a computer keyboard.</li>
+      </ul>
+      <p class="example">“Keyboarding is the part of this job I hate the most.”</p>
+      <div class="source-line"></div>
+      <div class="source">
+        <p>source</p>
+        <div class="links">
+          <a href="https://en.wiktionary.org/wiki/keyboard">https://en.wiktionary.org/wiki/keyboard</a>
+          <img src="./images/icon-new-window.svg" alt="">
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="./app.js"></script>
 </body>
 </html>
