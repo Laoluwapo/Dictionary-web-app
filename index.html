@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Inter:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./style.css">
   <title>Dictionary web app</title>
 </head>
@@ -32,13 +33,16 @@
     </nav>
     <main>
       <div class="search">
-        <input type="text">
+        <input type="text" placeholder="Search for any word...">
         <img src="./images/icon-search.svg" alt="search icon">
       </div>
+      <p class="error-empty">Whoops, can't be empty...</p>
       <div class="search-term">
         <h1>keyboard</h1>
         <p>/ˈkiːbɔːd/</p>
-        <img src="./images/icon-play.svg" alt="play icon">
+        <div class="play-icon">
+          <i class="fa-solid fa-play"></i>
+        </div>
       </div>
       <div class="meaning-section">
         <div class="noun">
