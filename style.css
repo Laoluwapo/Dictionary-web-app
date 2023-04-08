@@ -93,19 +93,6 @@ nav {
 .toggle-input:checked ~ .toggle-fill::after {
     transform: translate(var(--height), -50%);
 }
-ul {
-    list-style: none;
-}
-ul li {
-    padding-left: 2.4rem;
-    position: relative;
-}
-ul li::before {
-    content: '\2022';
-    display: inline-block;
-    position: absolute;
-    left: 0;
-}
 
 /* Search elements */
 .search {
@@ -169,4 +156,86 @@ position: relative;
 .play-icon:hover {
     background-color: rgba(164, 69, 237, 1);
     color: #fff;
+}
+
+/* Other elements */
+ul {
+    list-style: none;
+}
+ul li {
+    padding-left: 2.4rem;
+    position: relative;
+}
+ul li::before {
+    content: '\2022';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    color: var(--clr-accent);
+}
+
+.noun, .verb {
+    display: flex;
+    align-items: center;
+    gap: 1.9rem;
+    margin-bottom: 3.1rem;
+}
+.noun h2, .verb h2 {
+    font-size: 1.8rem;
+    font-style: italic;
+}
+.horz-dema {
+    background: #E9E9E9;
+    height: 1px;
+    flex: 1;
+}
+.meaning-section {
+    margin-bottom: 3.3rem;
+}
+.meaning-section ul {
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+}
+.meaning {
+    color: var(--clr-secondary);
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+.synonyms {
+    font-size: 1.6rem;
+    display: flex;
+    margin-top: 2.4rem;
+}
+.syn-tag {
+    margin-right: 2.4rem;
+}
+.syn-example {
+    color: var(--clr-accent);
+    font-weight: 700;
+}
+.example {
+    color: var(--clr-secondary);
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    margin-top: 1.3rem;
+}
+.source-line {
+    background: #E9E9E9;
+    height: 1px;
+    width: 100%;
+    margin-bottom: 2.4rem;
+}
+.source p {
+    color: var(--clr-secondary);
+    font-size: 1.4rem;
+    text-decoration: underline;
+    margin-bottom: .8rem;
+}
+.links {
+    display: flex;
+    gap: .9rem;
+}
+.links a {
+    color: var(--clr-primary);
+    font-size: 1.4rem;
 }
