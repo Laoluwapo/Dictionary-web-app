@@ -141,6 +141,7 @@ position: relative;
 .play-icon {
     background-color: rgba(164, 69, 237, 0.25);
     border-radius: 50%;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,6 +166,7 @@ ul {
 ul li {
     padding-left: 2.4rem;
     position: relative;
+    margin-bottom: 1.3rem;
 }
 ul li::before {
     content: '\2022';
@@ -173,7 +175,6 @@ ul li::before {
     left: 0;
     color: var(--clr-accent);
 }
-
 .noun, .verb {
     display: flex;
     align-items: center;
@@ -233,9 +234,60 @@ ul li::before {
 }
 .links {
     display: flex;
+    align-items: center;
     gap: .9rem;
 }
 .links a {
     color: var(--clr-primary);
     font-size: 1.4rem;
+}
+/* laptop styles */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 73.7rem;
+    }
+    nav {
+        padding: 0;
+        margin: 5.8rem 0;
+    }
+    .font-select {
+        cursor: pointer;
+    }
+    .search-term h1 {
+        font-size: 6.4rem;
+        margin-bottom: 1.1rem;
+    }
+    .search-term p {
+        font-size: 2.4rem;
+    }
+    .play-icon {
+        width: 7.5rem;
+        height: 7.5rem;
+        font-size: 2.1rem;
+    }
+    .noun h2, .verb h2  {
+        font-size: 2.4rem;
+    }
+    .meaning-section ul {
+        font-size: 1.8rem;
+    }
+    .meaning {
+        font-size: 2rem;
+        margin-bottom: 2.7rem;
+    }
+    .synonyms {
+        font-size: 2rem;
+        margin-top: 4.1rem;
+    }
+    .example {
+        font-size: 1.8rem;
+    }
+    .source p {
+        margin: 0;
+    }
+    .source-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+    }
 }
