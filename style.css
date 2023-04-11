@@ -26,6 +26,9 @@ body {
     width: 90%;
     margin: 0 auto;
 }
+/* .result-section { */
+    /* display: none; */
+/* } */
 
 /* nav elements */
 nav {
@@ -243,6 +246,9 @@ ul li::before {
 .links a {
     color: var(--clr-primary);
     font-size: 1.4rem;
+}
+.disabled {
+    opacity: 0.25;
 }
 
 /* laptop styles */
