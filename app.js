@@ -4,6 +4,10 @@ const emptyErrorInput = document.querySelector(".error-empty");
 const sound = document.querySelector(".sound");
 const result = document.querySelector(".result-section");
 const playBtn = document.querySelector(".play-icon");
+const nounSection = document.querySelector(".noun-sect");
+const verbSection = document.querySelector(".verb-sect");
+const nounList = document.querySelector(".noun-list");
+const verbList = document.querySelector(".verb-list");
 
 // Functions
 // Function that fetches the data from the API
@@ -38,18 +42,21 @@ const getUserData = async (e) => {
 async function searchMeaning(e) {
   try {
     const data = await getUserData(e);
-    setValues(data);
+    setSoundValues(data);
+    setMeaningValues(data);
   } catch (error) {
     console.error(error.message);
   }
 }
 
-function setValues(data) {
+// A function that sets the content and sound
+function setSoundValues(data) {
   const searchedWord = document.querySelector(".search-term h1");
   const phoneticsText = document.querySelector(".search-term p");
   if (data && data.length > 0) {
     searchedWord.textContent = data[0].word;
     const phonetics = data[0].phonetics;
+    // Check if phonetics exists in the data, if there's at least one object and if phonetics audio exists there.
     if (phonetics && phonetics.length > 0 && phonetics[0].audio) {
       phoneticsText.textContent = phonetics[0].text;
       sound.setAttribute("src", phonetics[0].audio);
@@ -62,6 +69,39 @@ function setValues(data) {
       sound.setAttribute("src", "");
       playBtn.disabled = true;
       playBtn.classList.add("disabled");
+    }
+  }
+}
+
+// A function that sets the content of the meanings section
+function setMeaningValues(data) {
+  if (data && data.length > 0) {
+    // Check if there are meanings present and set them to an li
+    if (data[0].meanings && data[0].meanings.length > 0) {
+      // Clear existing list items
+      nounList.innerHTML = "";
+      verbList.innerHTML = "";
+      data[0].meanings.forEach((meaning) => {
+        // check if there are noun definitions
+        if (meaning.partOfSpeech === "noun" && meaning.definitions.length > 0) {
+          // Create new list item for each definition
+          for (let i = 0; i < meaning.definitions.length && i < 3; i++) {
+            const definition = meaning.definitions[i];
+            const li = document.createElement("li");
+            li.textContent = definition.definition;
+            nounList.appendChild(li);
+          }
+        }
+        // Check if there are verb  definitions
+        if (meaning.partOfSpeech === "verb" && meaning.definitions.length > 0) {
+          for (let i = 0; i < meaning.definitions.length && i < 3; i++) {
+            const definition = meaning.definitions[i];
+            const li = document.createElement("li");
+            li.textContent = definition.definition;
+            verbList.appendChild(li);
+          }
+        }
+      });
     }
   }
 }

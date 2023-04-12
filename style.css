@@ -196,7 +196,7 @@ ul li::before {
     height: 1px;
     flex: 1;
 }
-.meaning-section {
+.meaning-section.noun-sect {
     margin-bottom: 3.3rem;
 }
 .meaning-section ul {
@@ -224,7 +224,7 @@ ul li::before {
     color: var(--clr-secondary);
     font-size: 1.5rem;
     line-height: 2.4rem;
-    margin-top: 1.3rem;
+    margin: 1.3rem 0 3.2rem 0;
 }
 .source-line {
     background: #E9E9E9;
