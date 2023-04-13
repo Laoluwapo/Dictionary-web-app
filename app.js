@@ -132,11 +132,13 @@ function setOtherValues(data) {
     const meanings = data[0].meanings;
     if (meanings && meanings.length > 0 && meanings[0].synonyms) {
       if (meanings[0].synonyms[0]) {
+        synExample.style.display = "block";
         synExample.textContent = meanings[0].synonyms[0];
       } else {
         synExample.parentElement.style.display = "none";
       }
       if (meanings[0].definitions[0].example) {
+        example.style.display = "block";
         example.textContent = `"` + meanings[0].definitions[0].example + `"`;
       } else {
         example.style.display = "none";
