@@ -81,9 +81,13 @@ function setMeaningValues(data) {
       // Clear existing list items
       nounList.innerHTML = "";
       verbList.innerHTML = "";
+      // Check if there are noun and verb meanings present and set them to a list
+      let hasNounMeanings = false;
+      let hasVerbMeanings = false;
       data[0].meanings.forEach((meaning) => {
         // check if there are noun definitions
         if (meaning.partOfSpeech === "noun" && meaning.definitions.length > 0) {
+          hasNounMeanings = true;
           // Create new list item for each definition
           for (let i = 0; i < meaning.definitions.length && i < 3; i++) {
             const definition = meaning.definitions[i];
@@ -94,6 +98,7 @@ function setMeaningValues(data) {
         }
         // Check if there are verb  definitions
         if (meaning.partOfSpeech === "verb" && meaning.definitions.length > 0) {
+          hasVerbMeanings = true;
           for (let i = 0; i < meaning.definitions.length && i < 3; i++) {
             const definition = meaning.definitions[i];
             const li = document.createElement("li");
@@ -102,6 +107,18 @@ function setMeaningValues(data) {
           }
         }
       });
+      // Show/hide noun and verb sections based on if they have meanings
+      if (hasNounMeanings) {
+        nounSection.style.display = "block";
+      } else {
+        nounSection.style.display = "none";
+      }
+
+      if (hasVerbMeanings) {
+        verbSection.style.display = "block";
+      } else {
+        verbSection.style.display = "none";
+      }
     }
   }
 }
