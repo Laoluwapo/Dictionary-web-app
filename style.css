@@ -26,9 +26,9 @@ body {
     width: 90%;
     margin: 0 auto;
 }
-/* .result-section { */
-    /* display: none; */
-/* } */
+.result-section { 
+    display: none;
+}
 
 /* nav elements */
 nav {

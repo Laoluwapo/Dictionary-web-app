@@ -44,6 +44,7 @@ async function searchMeaning(e) {
     const data = await getUserData(e);
     setSoundValues(data);
     setMeaningValues(data);
+    setOtherValues(data);
   } catch (error) {
     console.error(error.message);
   }
@@ -113,12 +114,37 @@ function setMeaningValues(data) {
       } else {
         nounSection.style.display = "none";
       }
-
       if (hasVerbMeanings) {
         verbSection.style.display = "block";
       } else {
         verbSection.style.display = "none";
       }
+    }
+  }
+}
+
+// Function that sets the synonyms, example and source
+function setOtherValues(data) {
+  const synExample = document.querySelector(".syn-example");
+  const example = document.querySelector(".example");
+  const sourceLink = document.querySelector(".links a");
+  if (data && data.length > 0) {
+    const meanings = data[0].meanings;
+    if (meanings && meanings.length > 0 && meanings[0].synonyms) {
+      if (meanings[0].synonyms[0]) {
+        synExample.textContent = meanings[0].synonyms[0];
+      } else {
+        synExample.parentElement.style.display = "none";
+      }
+      if (meanings[0].definitions[0].example) {
+        example.textContent = `"` + meanings[0].definitions[0].example + `"`;
+      } else {
+        example.style.display = "none";
+      }
+    }
+    if (data[0].sourceUrls && data[0].sourceUrls.length > 0) {
+      sourceLink.textContent = data[0].sourceUrls[0];
+      sourceLink.href = data[0].sourceUrls[0];
     }
   }
 }
