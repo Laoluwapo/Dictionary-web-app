@@ -18,7 +18,7 @@ html {
 body {
     width: 100%;
     height: 100vh;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inconsolata', monospace;
     color: var(--clr-primary);
     background: var(--bg-light);
 }

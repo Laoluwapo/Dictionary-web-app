@@ -9,6 +9,7 @@ const verbSection = document.querySelector(".verb-sect");
 const nounList = document.querySelector(".noun-list");
 const verbList = document.querySelector(".verb-list");
 const noDefinitions = document.querySelector(".no-def-found");
+const selectFont = document.querySelector(".font-select");
 
 // Functions
 // Function that fetches the data from the API
@@ -156,6 +157,18 @@ function setOtherValues(data) {
   }
 }
 
+// Function that changes the font family to the selected one
+function changeFontFamily(e) {
+  const selectedOption = e.target.value;
+  if (selectedOption === "Serif") {
+    document.body.style.fontFamily = "'Lora', serif";
+  } else if (selectedOption === "Sans Serif") {
+    document.body.style.fontFamily = "'Inter', sans-serif";
+  } else {
+    document.body.style.fontFamily = "'Inconsolata', monospace";
+  }
+}
+
 // Event Listeners
 window.addEventListener("keypress", (e) => {
   searchMeaning(e);
@@ -163,4 +176,7 @@ window.addEventListener("keypress", (e) => {
 searchInput.addEventListener("input", () => {
   // Hide input error message
   emptyErrorInput.style.display = "none";
+});
+selectFont.addEventListener("change", (e) => {
+  changeFontFamily(e);
 });
