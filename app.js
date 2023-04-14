@@ -50,7 +50,7 @@ async function searchMeaning(e) {
   }
 }
 
-// A function that sets the content and sound
+// A function that sets the searched term content and sound
 function setSoundValues(data) {
   const searchedWord = document.querySelector(".search-term h1");
   const phoneticsText = document.querySelector(".search-term p");
@@ -58,18 +58,20 @@ function setSoundValues(data) {
     searchedWord.textContent = data[0].word;
     const phonetics = data[0].phonetics;
     // Check if phonetics exists in the data, if there's at least one object and if phonetics audio exists there.
-    if (phonetics && phonetics.length > 0 && phonetics[0].audio) {
+    if (phonetics && phonetics.length > 0) {
       phoneticsText.textContent = phonetics[0].text;
-      sound.setAttribute("src", phonetics[0].audio);
-      playBtn.disabled = false;
-      playBtn.classList.remove("disabled");
-      playBtn.addEventListener("click", () => {
-        sound.play();
-      });
-    } else {
-      sound.setAttribute("src", "");
-      playBtn.disabled = true;
-      playBtn.classList.add("disabled");
+      if (phonetics[0].audio) {
+        sound.setAttribute("src", phonetics[0].audio);
+        playBtn.disabled = false;
+        playBtn.classList.remove("disabled");
+        playBtn.addEventListener("click", () => {
+          sound.play();
+        });
+      } else {
+        sound.setAttribute("src", "");
+        playBtn.disabled = true;
+        playBtn.classList.add("disabled");
+      }
     }
   }
 }
