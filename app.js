@@ -8,6 +8,7 @@ const nounSection = document.querySelector(".noun-sect");
 const verbSection = document.querySelector(".verb-sect");
 const nounList = document.querySelector(".noun-list");
 const verbList = document.querySelector(".verb-list");
+const noDefinitions = document.querySelector(".no-def-found");
 
 // Functions
 // Function that fetches the data from the API
@@ -16,16 +17,15 @@ const getUserData = async (e) => {
     if (searchInput.value !== "") {
       if (e.which === 13) {
         const word = searchInput.value;
-        console.log(word);
         const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
         const response = await fetch(url);
         if (response.status !== 200) {
           throw new Error("could not fetch user data");
         }
         const data = await response.json();
-        console.log(data);
         // Show the result section
         result.style.display = "block";
+        noDefinitions.style.display = "none";
         // Clear search input
         searchInput.value = "";
         return data;
@@ -34,6 +34,9 @@ const getUserData = async (e) => {
       emptyErrorInput.style.display = "block";
     }
   } catch (error) {
+    result.style.display = "none";
+    noDefinitions.style.display = "block";
+    searchInput.value = "";
     console.error(error.message);
   }
 };
