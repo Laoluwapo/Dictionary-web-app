@@ -76,6 +76,11 @@ function setSoundValues(data) {
         playBtn.disabled = true;
         playBtn.classList.add("disabled");
       }
+    } else {
+      phoneticsText.textContent = "";
+      sound.setAttribute("src", "");
+      playBtn.disabled = true;
+      playBtn.classList.add("disabled");
     }
   }
 }
