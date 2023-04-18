@@ -9,7 +9,9 @@ const verbSection = document.querySelector(".verb-sect");
 const nounList = document.querySelector(".noun-list");
 const verbList = document.querySelector(".verb-list");
 const noDefinitions = document.querySelector(".no-def-found");
-const selectFont = document.querySelector(".font-select");
+const selectFont = document.querySelector(".input-wrapper input");
+const dropdown = document.querySelector(".dropdown");
+const fontOptions = document.querySelector(".options");
 
 // Functions
 // Function that fetches the data from the API
@@ -162,15 +164,28 @@ function setOtherValues(data) {
   }
 }
 
+// Function that toggles the dropdown
+function toggleDropdown() {
+  dropdown.classList.toggle("active");
+}
+
 // Function that changes the font family to the selected one
-function changeFontFamily(e) {
-  const selectedOption = e.target.value;
+selectFont.value = "Mono";
+function showClickedFont(e) {
+  const selectedOption = e.target.textContent;
+  selectFont.value = selectedOption;
   if (selectedOption === "Serif") {
+    selectFont.style.fontFamily = "'Lora', serif";
     document.body.style.fontFamily = "'Lora', serif";
+    dropdown.classList.remove("active");
   } else if (selectedOption === "Sans Serif") {
+    selectFont.style.fontFamily = "'Inter', sans-serif";
     document.body.style.fontFamily = "'Inter', sans-serif";
+    dropdown.classList.remove("active");
   } else {
+    selectFont.style.fontFamily = "'Inconsolata', monospace";
     document.body.style.fontFamily = "'Inconsolata', monospace";
+    dropdown.classList.remove("active");
   }
 }
 
@@ -182,6 +197,12 @@ searchInput.addEventListener("input", () => {
   // Hide input error message
   emptyErrorInput.style.display = "none";
 });
-selectFont.addEventListener("change", (e) => {
-  changeFontFamily(e);
+fontOptions.addEventListener("click", (e) => {
+  showClickedFont(e);
+});
+selectFont.addEventListener("click", toggleDropdown);
+window.addEventListener("click", (e) => {
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove("active");
+  }
 });
