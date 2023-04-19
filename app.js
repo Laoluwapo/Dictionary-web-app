@@ -12,6 +12,7 @@ const noDefinitions = document.querySelector(".no-def-found");
 const selectFont = document.querySelector(".input-wrapper input");
 const dropdown = document.querySelector(".dropdown");
 const fontOptions = document.querySelector(".options");
+const toggle = document.querySelector(".toggle-input");
 
 // Functions
 // Function that fetches the data from the API
@@ -189,6 +190,15 @@ function showClickedFont(e) {
   }
 }
 
+//Function that toggles the dark theme
+function toggleTheme() {
+  if (toggle.checked) {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+}
+
 // Event Listeners
 window.addEventListener("keypress", (e) => {
   searchMeaning(e);
@@ -206,3 +216,4 @@ window.addEventListener("click", (e) => {
     dropdown.classList.remove("active");
   }
 });
+toggle.addEventListener("change", toggleTheme);
