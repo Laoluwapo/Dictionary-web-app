@@ -13,6 +13,7 @@ const selectFont = document.querySelector(".input-wrapper input");
 const dropdown = document.querySelector(".dropdown");
 const fontOptions = document.querySelector(".options");
 const toggle = document.querySelector(".toggle-input");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
 // Functions
 // Function that fetches the data from the API
@@ -193,11 +194,23 @@ function showClickedFont(e) {
 //Function that toggles the dark theme
 function toggleTheme() {
   if (toggle.checked) {
+    document.body.classList.remove("light");
     document.body.classList.add("dark");
   } else {
     document.body.classList.remove("dark");
+    document.body.classList.add("light");
   }
 }
+
+// Function that check if a user prefers darkmode and adjusts the toggle
+function userPrefersDark() {
+  if (prefersDark.matches) {
+    toggle.checked = true;
+  } else {
+    toggle.checked = false;
+  }
+}
+userPrefersDark();
 
 // Event Listeners
 window.addEventListener("keypress", (e) => {

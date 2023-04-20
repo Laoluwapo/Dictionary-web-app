@@ -16,6 +16,13 @@
     --bg-default: #1F1F1F;
     --lt-boxShadow: 0px 5px 30px 0px #A445ED;
 }
+.light {
+    --clr-primary: #2D2D2D;
+    --clr-input-bg: #F4F4F4;
+    --bg-light: #fdfdfd;
+    --bg-default: #fff;
+    --lt-boxShadow: 0px 5px 30px 0px #0000001A;
+}
 * {
     margin: 0;
     padding: 0;
@@ -406,5 +413,16 @@ ul li::before {
         color: var(--clr-accent);
         cursor: pointer;
         transition: all .5s ease-in-out;
+    }
+}
+
+/* Prefers color scheme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clr-primary: #fff;
+        --clr-input-bg: #1F1F1F;
+        --bg-light: #050505;
+        --bg-default: #1F1F1F;
+        --lt-boxShadow: 0px 5px 30px 0px #A445ED;
     }
 }
